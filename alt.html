@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 800px;
+            height: 1200px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "0", "label": "LogMapBio", "shape": "dot", "size": 10, "title": "LogMapBio - 0.889", "x": 0, "y": 0}, {"id": "1", "label": "SANOM", "shape": "dot", "size": 10, "title": "SANOM - 0.789", "x": 0, "y": 130}, {"id": "4", "label": "Lily", "shape": "dot", "size": 10, "title": "Lily - 0.702", "x": 0, "y": 260}, {"id": "2", "label": "LogMapLite", "shape": "dot", "size": 10, "title": "LogMapLite - 0.636", "x": 0, "y": 390}, {"id": "3", "label": "KEPLER", "shape": "dot", "size": 10, "title": "KEPLER - 0.627", "x": 0, "y": 520}, {"id": "5", "label": "ALIN", "shape": "dot", "size": 10, "title": "ALIN - 0.571", "x": 0, "y": 650}]);
+        edges = new vis.DataSet([{"arrows": "to", "from": "0", "label": "1.0", "to": "1"}, {"arrows": "to", "from": "1", "label": "1.0", "to": "4"}, {"arrows": "to", "from": "4", "label": "1.0", "to": "2"}, {"arrows": "to", "from": "2", "label": "0.967", "to": "3"}, {"arrows": "to", "from": "2", "label": "0.984", "to": "5"}, {"arrows": "to", "from": "3", "label": "0.964", "to": "5"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "curvedCW"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": false,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
