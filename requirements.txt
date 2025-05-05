@@ -2,6 +2,6 @@ ipython==9.2.0
 matplotlib==3.10.1
 pyvis==0.3.2
 numpy==2.2.5
-stan==1.0
+pystan
 
 

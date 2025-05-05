@@ -1,8 +1,8 @@
 .venv/
 .vscode/
-Backup/
+backup/
 __pycache__/
-/build/
+build/
 lib/
 
 
