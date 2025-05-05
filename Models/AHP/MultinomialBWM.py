@@ -353,7 +353,7 @@ if __name__ == "__main__":
 
     opt = {'CriteriaDependence': False, 'Sigma': np.eye(cNo) }
 
-    bwm = StandardBWM( AB=a_b, AW=a_w, opt=opt, alternatives=altMat)#, dm_cluster_number=2, )
+    bwm = MultinomialBWM( AB=a_b, AW=a_w, opt=opt, alternatives=altMat)#, dm_cluster_number=2, )
     bwm.sampling()
     print('Ok')
 

@@ -1,6 +1,6 @@
 import numpy as np
 from Models.AHP.StandardAHP import StandardAHP
-from Visualization.graph import credal_ranking, weight_distribution
+from Graphs import credal_ranking, weight_distribution
 
 def GMM(PCM):
     dm_no = len(PCM)
